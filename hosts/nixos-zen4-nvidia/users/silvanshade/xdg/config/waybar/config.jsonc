@@ -1,0 +1,107 @@
+// code: language=jsonc
+{
+  "layer": "top",
+  "height": 32,
+  "spacing": 2,
+  "modules-left": [
+    "idle_inhibitor",
+    "temperature",
+    "cpu",
+    "memory",
+    "network",
+    "pulseaudio",
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": ["wlr/taskbar"],
+
+  "modules-right": ["tray", "clock"],
+  "cpu": {
+    "format": "{usage}% 󰻠",
+    "tooltip": false
+  },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "",
+      "2": "",
+      "3": "󰨞",
+      "4": "",
+      "5": "󰙯",
+      "6": "",
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 6 // 6 workspaces by default on every monitor
+    }
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    }
+  },
+
+  "memory": {
+    "format": "{}% 󰍛"
+  },
+
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) 󰀂", // 󱚻
+    "format-ethernet": "{ipaddr}/{cidr} 󰒍", // 󰈀, 󰈁
+    "tooltip-format": "{ifname} via {gwaddr} 󱫋",
+    "format-linked": "{ifname} (No IP) 󰛵",
+    "format-disconnected": "Disconnected 󰅛",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "󰝟 {icon}  {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "󱆂",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "on-click": "pwvucontrol"
+  },
+
+  "temperature": {
+    // "thermal-zone": 2,
+    "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+    "critical-threshold": 95,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "tray": {
+    // "icon-size": 21,
+    "spacing": 10
+  },
+
+  "clock": {
+    "interval": 60,
+    "format": " {:%a %D  %R}"
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [],
+    "sort-by-app-id": true
+  }
+}

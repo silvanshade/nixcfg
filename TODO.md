@@ -1,0 +1,29 @@
+# todo
+
+- \[ \] switch to rust-overlay
+- \[ \] atuin sync
+- \[ \] git ssh auth when for headless mode
+  - \[ \] wrapper script to detect if WM is available
+- \[ \] configure CI
+- \[ \] configure commit hooks
+- \[ \] configure kanshi
+- \[ \] configure idle
+  - \[ \] configure hypridle
+  - \[ \] configure lock hyprlock
+  - \[ \] configure suspend with hypridle
+- \[ \] configure power management
+  - \[x\] enable nvidia power management
+  - \[ \] configure suspend hypridle
+- \[ \] configure secrets management
+- \[ \] configure waybar
+- \[ \] configure wayland
+- \[ \] configure wine
+- \[ \] milkv pioneer bootloader
+- \[ \] populate keys
+- \[ \] factor out common home-manager config
+- \[ \] set 7.1 audio profile through HDMI-1-A by default
+- \[ \] refactor for host-specific home-manager configuration (pass in host data)
+- \[ \] re-enable sunshine
+- \[ \] fix nautilus dark mode
+- \[ \] fix dunst settings
+- \[ \] ensure Firefox opens URLs by default
