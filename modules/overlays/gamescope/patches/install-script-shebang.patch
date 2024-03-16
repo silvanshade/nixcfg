@@ -1,0 +1,10 @@
+diff --git a/default_scripts_install.sh b/default_scripts_install.sh
+index 1175116..66f06a1 100755
+--- a/default_scripts_install.sh
++++ b/default_scripts_install.sh
+@@ -1,4 +1,4 @@
+-#!/usr/bin/env sh
++#!/bin/sh
+ 
+ # Remove old Gamescope default configs and add our own.
+ mkdir -p "${DESTDIR}/${MESON_INSTALL_PREFIX}/share/gamescope"

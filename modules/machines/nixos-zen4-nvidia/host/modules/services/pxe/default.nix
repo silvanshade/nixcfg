@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./pixiecore.nix
+  ];
+}

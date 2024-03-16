@@ -1,0 +1,7 @@
+# Generic Wootings
+SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", MODE:="0660", GROUP="input"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", MODE:="0660", GROUP="input"
+
+# Wooting 80HE
+# SUBSYSTEM=="hidraw", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="1402", MODE:="0660", GROUP="input"
+# SUBSYSTEM=="usb", ATTRS{idVendor}=="31e3", ATTRS{idProduct}=="1402", MODE:="0660", GROUP="input"

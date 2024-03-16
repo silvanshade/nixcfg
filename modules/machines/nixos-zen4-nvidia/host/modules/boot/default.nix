@@ -1,0 +1,8 @@
+{ ... }:
+
+{
+  imports = [
+    ./loader
+    ./initrd.nix
+  ];
+}
