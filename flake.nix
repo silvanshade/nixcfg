@@ -9,31 +9,30 @@ rec {
     extra-experimental-features = [
       "flakes"
       "nix-command"
+      "repl-flake"
     ];
     extra-sandbox-paths = [
       "/var/cache/ccache"
     ];
     extra-substituters = [
       "https://cache.nixos.org"
-      # "https://cosmic.cachix.org/"
+      "https://cosmic.cachix.org/"
       "https://cuda-maintainers.cachix.org"
       "https://hyprland.cachix.org"
       "https://nix-community.cachix.org"
-      # "https://nix-gaming.cachix.org"
     ];
     extra-trusted-public-keys = [
-      # "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
+      "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE="
       "cuda-maintainers.cachix.org-1:0dq3bujKpuEPMCX6U4WylrUDZ9JyUG0VpVZa7CNfq5E="
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      # "nix-gaming.cachix.org-1:nbjlureqMbRAxR1gJ/f3hxemL9svXaZF/Ees8vCUUs4="
     ];
   };
 
   inputs = {
-    flake-compat = {
-      url = "github:inclyc/flake-compat";
-      flake = false;
+    gomod2nix = {
+      url = "github:nix-community/gomod2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -47,14 +46,10 @@ rec {
       url = "github:hyprwm/contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nixos-cosmic = {
-    #   url = "github:lilyinstarlight/nixos-cosmic";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-    # nix-gaming = {
-    #   url = "github:fufexan/nix-gaming";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nix-index-db = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -98,7 +93,7 @@ rec {
       });
 
       packages = eachSystemPkgs { config.allowUnfree = true; } (pkgs: {
-        pragmata-pro = pkgs.callPackage ./pkgs/pragmata-pro.nix { };
+        pragmata-pro = pkgs.callPackage ./packages/pragmata-pro.nix { };
       });
 
       nixosConfigurations = {
@@ -120,16 +115,21 @@ rec {
                   };
                 };
               })
-              # inputs.nixos-cosmic.nixosModules.default
+              {
+                nixpkgs.overlays = [
+                  inputs.gomod2nix.overlays.default
+                ];
+              }
+              inputs.nixos-cosmic.nixosModules.default
               inputs.home-manager.nixosModules.home-manager
               {
                 home-manager.useGlobalPkgs = true;
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = { inherit inputs; };
               }
-              ./hosts/nixos-zen4-nvidia
+              ./machines/nixos-zen4-nvidia
               {
-                home-manager.users.silvanshade = import ./hosts/nixos-zen4-nvidia/users/silvanshade;
+                home-manager.users.silvanshade = import ./machines/nixos-zen4-nvidia/home/silvanshade;
               }
             ];
           };

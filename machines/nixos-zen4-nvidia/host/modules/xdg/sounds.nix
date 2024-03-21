@@ -1,0 +1,3 @@
+{
+  xdg.sounds.enable = true;
+}
