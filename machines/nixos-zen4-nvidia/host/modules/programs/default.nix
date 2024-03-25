@@ -79,6 +79,7 @@
 
       monitoring = [
         btop
+        htop
         nvtopPackages.nvidia
         procs
       ];
