@@ -45,6 +45,7 @@
       ];
 
       hardware-tools-general = [
+        ethtool
         i2c-tools
         lm_sensors
         pciutils
@@ -78,14 +79,17 @@
       ];
 
       monitoring = [
+        bandwhich
         btop
         htop
+        iperf
         nvtopPackages.nvidia
         procs
       ];
 
       networking = [
         bore-cli
+        croc
         curl
         jq
         magic-wormhole-rs
