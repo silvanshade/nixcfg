@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./loader
-    ./initrd.nix
+    ./systemd-boot.nix
   ];
 }
