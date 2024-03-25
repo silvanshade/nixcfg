@@ -27,3 +27,6 @@
 - \[ \] fix dunst settings
 - \[ \] ensure Firefox opens URLs by default
 - \[ \] fix alacritty hyperlinks
+- \[ \] adjust network interface settings with ethtool
+  - \[ \] rx-udp-gro-forwarding: on
+  - \[ \] generic-receive-offload: off? (or tune)
