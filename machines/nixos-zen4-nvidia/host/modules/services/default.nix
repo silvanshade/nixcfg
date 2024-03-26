@@ -6,6 +6,7 @@
     ./desktop-manager
     ./display-manager
     ./gnome
+    ./pxe
     ./virtualization
   ] ++ [
     ./ssh.nix
