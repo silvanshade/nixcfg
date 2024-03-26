@@ -5,11 +5,11 @@
     createHome = true;
     isNormalUser = true;
     extraGroups = [
-      "libvirtd"
-      "networkmanager"
-      "tss"
-      "video"
-      "wheel"
+      "libvirtd" # for virt-manager
+      "networkmanager" # for nm-applet
+      "tss" # for tpm2-tss
+      "video" # for fbdev
+      "wheel" # for sudo
     ];
     hashedPassword = "$6$Veb.KQMgFPlH9ArX$D7.hDU0hucdPQnIIDU5C8Vk2LDdGAOn8SfqagnnMF9OoNTgG3Rg2yX5oFlw0LNMCS8swFXKmZQiAhX/V.QBh.1";
     openssh.authorizedKeys.keys = [
