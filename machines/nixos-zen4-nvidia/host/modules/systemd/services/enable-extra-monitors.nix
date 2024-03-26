@@ -13,7 +13,10 @@
     ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pkgs.bash}/bin/sh -c 'echo on > /sys/class/drm/card0-DP-3/status'";
+      ExecStart = pkgs.writeScript "enable-extra-monitors.sh" ''
+        #!/bin/sh
+        echo on > /sys/class/drm/card0-DP-3/status
+      '';
     };
   };
 }

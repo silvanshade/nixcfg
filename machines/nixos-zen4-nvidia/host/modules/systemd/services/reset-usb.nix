@@ -9,17 +9,19 @@
       "post-resume.target"
     ];
     path = with pkgs; [
+      bash
       coreutils
       kmod
     ];
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = [
-        "sleep 15"
-        "rmmod xhci_pci"
-        "sleep 5"
-        "modprobe xhci_pci"
-      ];
+      ExecStart = pkgs.writeScript "reset-usb.sh" ''
+        #!/bin/sh
+        sleep 15
+        rmmod xhci_pci
+        sleep 5
+        modprobe xhci_pci
+      '';
     };
   };
 }
