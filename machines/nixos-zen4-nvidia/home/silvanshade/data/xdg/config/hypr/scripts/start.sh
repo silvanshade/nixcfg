@@ -46,8 +46,8 @@ wait_for_waybar() {
 
 waybar &
 
-"$(nix eval -f '<nixpkgs>' --raw 'polkit_gnome')"/libexec/polkit-gnome-authentication-agent-1 &
-"$(nix eval -f '<nixpkgs>' --raw 'tracker-miners')"/libexec/tracker-miner-fs-3 &
+"$(nix eval -f '/etc/nixos' --raw 'nixosConfigurations.nixos-zen4-nvidia.pkgs.polkit_gnome')"/libexec/polkit-gnome-authentication-agent-1 &
+"$(nix eval -f '/etc/nixos' --raw 'nixosConfigurations.nixos-zen4-nvidia.pkgs.tracker-miners')"/libexec/tracker-miner-fs-3 &
 dunst &
 
 wait_for_waybar
