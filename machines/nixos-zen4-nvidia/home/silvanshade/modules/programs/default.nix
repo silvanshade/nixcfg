@@ -64,6 +64,7 @@
 
       monitoring = [
         psensor
+        systemdgenie
       ];
 
       networking = [
