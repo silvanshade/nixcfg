@@ -33,7 +33,7 @@
         rustup
       ];
 
-      files-and-disks = [
+      filesystems = [
         gnome.gnome-disk-utility
         gnome.nautilus
         guestfs-tools
@@ -90,18 +90,19 @@
 
       terminal = [
         alacritty.terminfo
-        # wezterm.terminfo
         notcurses
+        # wezterm.terminfo
       ];
 
       utilities = [
         copyq
-        rofi-wayland
         dconf
+        rofi-wayland
         xdg-utils
       ];
 
       virtualization = [
+        # NOTE: qemu is currently installed system-wide
         # qemu_full
         # qemu-utils
       ];
@@ -112,7 +113,7 @@
     in
     builtins.concatLists [
       development
-      files-and-disks
+      filesystems
       fonts
       graphics
       media
