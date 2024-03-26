@@ -12,6 +12,7 @@
       bash
       coreutils
       kmod
+      uhubctl
     ];
     serviceConfig = {
       Type = "oneshot";
@@ -19,8 +20,10 @@
         #!/bin/sh
         sleep 15
         rmmod xhci_pci
+        rmmod xhci_hcd
         sleep 5
         modprobe xhci_pci
+        uhubctl --vendor 2188:0031 --action cycle
       '';
     };
   };
