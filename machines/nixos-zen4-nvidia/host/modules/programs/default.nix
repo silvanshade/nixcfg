@@ -30,18 +30,25 @@
         moreutils
       ];
 
-      editing = [
+      documentation = [
+        tealdeer
+      ];
+
+      file-tools = [
+        file
+        jless
         helix
+        hexyl
         repgrep
+        ripgrep-all
         sd
       ];
 
-      files-and-search = [
+      filesystems = [
         eza
         fd
+        dua
         dust
-        file
-        ripgrep-all
       ];
 
       hardware-tools-general = [
@@ -85,6 +92,11 @@
         iperf
         nvtopPackages.nvidia
         procs
+        # procmux # TODO: Define package
+        # tcpterm # TODO: Define package
+        termshark
+        trippy
+        viddy
       ];
 
       networking = [
@@ -94,6 +106,7 @@
         jq
         magic-wormhole-rs
         mosh
+        netop
         socat
         xh
       ];
@@ -114,6 +127,7 @@
         gibo
         git
         stgit
+        tig
       ];
 
       virtualization = [
@@ -125,8 +139,9 @@
       benchmarking
       containers
       core
-      editing
-      files-and-search
+      documentation
+      file-tools
+      filesystems
       hardware-tools-general
       hardware-tools-graphics
       linting-and-formatting
