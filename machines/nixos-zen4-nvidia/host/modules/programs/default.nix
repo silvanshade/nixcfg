@@ -116,6 +116,10 @@
         stgit
       ];
 
+      virtualization = [
+        qemu_full
+        qemu-utils
+      ];
     in
     builtins.concatLists [
       benchmarking
@@ -130,6 +134,7 @@
       networking
       nix-tools
       version-control
+      virtualization
     ] ++ (with inputs.nixos-milkv-pioneer.packages.${pkgs.system}; [
       milkv-pioneer-bsp-edk2
       milkv-pioneer-bsp-linux

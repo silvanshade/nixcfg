@@ -1,5 +1,6 @@
 {
   imports = [
+    ./virtualization
     ./window-manager
   ];
 }
