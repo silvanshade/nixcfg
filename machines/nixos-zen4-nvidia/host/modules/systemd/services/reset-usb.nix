@@ -18,11 +18,12 @@
       Type = "oneshot";
       ExecStart = pkgs.writeScript "reset-usb.sh" ''
         #!/bin/sh
-        sleep 15
+        sleep 10
         rmmod xhci_pci
         rmmod xhci_hcd
         sleep 5
         modprobe xhci_pci
+        sleep 5
         uhubctl --vendor 2188:0031 --action cycle
       '';
     };
