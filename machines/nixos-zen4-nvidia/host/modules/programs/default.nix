@@ -30,6 +30,11 @@
         moreutils
       ];
 
+      development = [
+        go
+        python312
+      ];
+
       documentation = [
         tealdeer
       ];
@@ -124,6 +129,7 @@
       ];
 
       version-control = [
+        b4
         gibo
         git
         stgit
@@ -139,6 +145,7 @@
       benchmarking
       containers
       core
+      development
       documentation
       file-tools
       filesystems

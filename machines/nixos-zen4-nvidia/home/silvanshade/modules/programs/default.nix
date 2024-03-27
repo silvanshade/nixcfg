@@ -29,7 +29,6 @@
         mold
         ninja
         nodejs_21
-        python312
         rustup
       ];
 
